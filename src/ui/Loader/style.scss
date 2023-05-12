@@ -1,0 +1,131 @@
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: $inLoader;
+  transform: rotate(90deg) translate(-50%);
+  stroke: $primary-black;
+
+  &--dark {
+    stroke: $primary-light-gray;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: $inLoaderIcon;
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+    animation: rotate 2s linear infinite;
+  }
+}
+
+.firstCircle,
+.secondCircle,
+.thirdCircle,
+.fourthCircle {
+  opacity: .35;
+  stroke-linecap: round;
+}
+
+.firstCircle {
+  opacity: .8;
+  animation: firstAnimation 2s linear infinite;
+}
+
+.secondCircle {
+  animation: secondAnimation 2s linear infinite;
+}
+
+.thirdCircle {
+  animation: thirdAnimation 2s linear infinite;
+}
+
+.fourthCircle {
+  animation: fourthAnimation 2s linear infinite;
+}
+
+@mixin strokeOffset($array: 1, $offset: 0) {
+  stroke-dasharray: $array, 150;
+  stroke-dashoffset: $offset;
+}
+
+@keyframes firstAnimation {
+  0% {
+    @include strokeOffset;
+  }
+
+  50% {
+    @include strokeOffset(58, -45);
+  }
+
+  80% {
+    @include strokeOffset(90, -124);
+  }
+
+  100% {
+    @include strokeOffset(110, -124);
+  }
+}
+
+@keyframes secondAnimation {
+  0% {
+    @include strokeOffset;
+  }
+
+  50% {
+    @include strokeOffset(58, -27);
+  }
+
+  80% {
+    @include strokeOffset(80, -124);
+  }
+
+  100% {
+    @include strokeOffset(100, -124);
+  }
+}
+
+@keyframes thirdAnimation {
+  0% {
+    @include strokeOffset;
+  }
+
+  50% {
+    @include strokeOffset(78, -3);
+  }
+
+  80% {
+    @include strokeOffset(90, -124);
+  }
+
+  100% {
+    @include strokeOffset(100, -124);
+  }
+}
+
+@keyframes fourthAnimation {
+  0% {
+    @include strokeOffset;
+  }
+
+  50% {
+    @include strokeOffset(80, -14);
+  }
+
+  80% {
+    @include strokeOffset(90, -124);
+  }
+
+  100% {
+    @include strokeOffset(100, -124);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+  grid-auto-rows: minmax(185px, 280px);
+  grid-template-columns: minmax(280px, 1fr);
+  gap: 20px;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  @include xl {
+    grid-auto-rows: 290px;
+    grid-template-columns: repeat(3, 392px);
+    gap: 32px;
+    justify-content: center;
+  }
+}

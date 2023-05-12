@@ -1,0 +1,80 @@
+.make-cover {
+  position: absolute;
+  top: 39px;
+  left: 10px;
+  z-index: $inMakeCover;
+  width: 138px;
+  padding: 10px 0 10px 0;
+  border-radius: 5px;
+  background-color: $primary-white;
+  @include hiddenElem;
+  transition: 0.5s;
+
+  &--active {
+    @include visibleElem;
+  }
+
+  &--dark {
+    background-color: $secondary-black;
+    color: $primary-white;
+  }
+
+  &--dark & {
+    &__icon {
+      color: $secondary-black;
+    }
+
+    &__button {
+      color: $primary-white;
+
+      &:hover {
+        color: $accent-gold;
+        background-color: $primary-black;
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    z-index: -1;
+    color: white;
+  }
+
+  &__items {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+
+  &__button {
+    border: none;
+    background: transparent;
+    @include font('Inter-Bold', 12px);
+    color: $dark-gray;
+    transition: 0.5s all;
+    text-align: left;
+    cursor: pointer;
+    padding: 0 16px;
+    width: 100%;
+    line-height: 23px;
+
+    &:active {
+      transform: scale(1.1);
+    }
+
+    &:hover {
+      color: $primary-black;
+    }
+
+    &:disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}

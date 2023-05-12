@@ -1,0 +1,138 @@
+.button {
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s all;
+  color: $primary-white;
+
+  @include font('Inter-Bold', 12px);
+  @include flex-all-center;
+
+  $root: &;
+
+  &--dark {
+    &#{$root} {
+      &--default {
+        background-color: $accent-gold;
+
+        &:not(&:disabled) {
+          &:hover,
+          &:focus {
+            box-shadow: 0 4px 10px rgb(171 137 86 / 25%);
+          }
+        }
+      }
+
+      &--text {
+        color: $primary-light-gray;
+
+        &:not(&:disabled) {
+          &:hover,
+          &:focus {
+            color: $primary-white;
+          }
+        }
+
+        &:disabled {
+          color: $secondary-gray;
+        }
+      }
+
+      &--icon {
+        background-color: $secondary-black;
+
+        &:not(&:disabled) {
+          &:hover,
+          &:focus {
+            @include svgChangeFill($primary-white);
+          }
+        }
+
+        &:disabled,
+        & {
+          @include svgChangeFill($primary-light-gray);
+        }
+      }
+
+      &--circle {
+        background-color: $secondary-black;
+        border-color: $secondary-black;
+
+        @include svgChangeFill($primary-white);
+
+        &:hover {
+          background-color: #242222;
+        }
+      }
+    }
+  }
+
+  &--default {
+    padding: 16px 75px;
+    background-color: $primary-black;
+    border-radius: 30px;
+
+    &:not(&:disabled) {
+      &:hover,
+      &:focus {
+        box-shadow: 0 4px 10px rgb(0 0 0 / 25%);
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+
+  &--text {
+    @include flex-all-center;
+    gap: 12px;
+    padding: 0;
+    color: $dark-gray;
+
+    &:not(&:disabled) {
+      &:hover,
+      &:focus {
+        color: $primary-black;
+      }
+    }
+
+    &:disabled {
+      color: $primary-light-gray;
+      cursor: default;
+    }
+  }
+
+  &--icon {
+    padding: 6px;
+    border-radius: 100%;
+
+    @include svgChangeFill($dark-gray);
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        @include svgChangeFill($primary-black);
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      @include svgChangeFill($dark-gray);
+    }
+  }
+
+  &--circle {
+    @include circle(60px, $secondary-white);
+
+    border: 1px solid $primary-light-gray;
+
+    @include svgChangeFill($dark-gray);
+
+    &:hover {
+      border-color: $primary-white;
+    }
+  }
+}

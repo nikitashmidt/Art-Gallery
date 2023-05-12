@@ -1,0 +1,172 @@
+.artist {
+  margin: 25px 0 80px 0;
+  transition: 0.5s all;
+
+  &--dark & {
+    &__subtitle {
+      color: $accent-gold;
+    }
+  }
+
+  @include xs {
+    margin: 40px 0 100px 0;
+  }
+
+  @include md {
+    margin-top: 50px;
+  }
+
+  &__content {
+    @include md {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    @include lg {
+      margin: 0 auto;
+      padding: 32px 0 0 100px;
+    }
+
+    @include xl {
+      width: 1440px;
+    }
+  }
+
+  &__back {
+    margin: 0 0 20px 20px;
+
+    @include xs {
+      text-decoration: none;
+    }
+
+    @include md {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__back-text {
+    display: none;
+
+    @include xs {
+      position: relative;
+      display: block;
+      @include beforeLine;
+    }
+  }
+
+  &__block {
+    @include md {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-bottom: 100px;
+    }
+
+    @include lg {
+      margin-bottom: 160px;
+    }
+  }
+
+  &__image {
+    height: 452px;
+
+    @include xs {
+      height: 500px;
+    }
+
+    @include md {
+      height: 800px;
+      width: 75%;
+    }
+
+    @include xl {
+      height: 1000px;
+    }
+  }
+
+  &__avatar {
+    object-fit: cover;
+  }
+
+  &__subtitle {
+    @include font('Cormorant-Bold', 32px);
+    color: $accent-red;
+    padding: 0 0 60px 20px;
+
+    @include xs {
+      font-size: 60px;
+    }
+
+    @include lg {
+      padding: 0 0 60px 60px;
+    }
+
+    &--auth {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__grid {
+    padding: 0 20px;
+
+    @include md {
+      padding-left: 0;
+    }
+
+    @include lg {
+      padding-right: 100px;
+    }
+  }
+
+  &__add {
+    justify-content: flex-end;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    @include md {
+      margin-bottom: 25px;
+    }
+
+    @include lg {
+      padding-right: 100px;
+    }
+  }
+
+  &__card {
+    list-style-type: none;
+    position: relative;
+    @include flex-all-center;
+
+    @include lg {
+      &:hover {
+        .artist__gear {
+          @include visibleElem;
+        }
+      }
+    }
+  }
+
+  &__gear {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    z-index: 14;
+    width: 28px;
+    height: 28px;
+    @include flex-all-center;
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 4px;
+    color: $primary-light-gray;
+    transition: 0.5s all;
+    border: none;
+
+    @include lg {
+      @include hiddenElem;
+    }
+
+    &--active {
+      @include visibleElem;
+    }
+  }
+}

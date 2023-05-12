@@ -1,0 +1,104 @@
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  outline: 1px solid $primary-light-gray;
+  border: none;
+  color: $dark-gray;
+  @include font('Inter-Light', 16px);
+  border-radius: 4px;
+  transition: 0.5s all;
+
+  &--dark {
+    &::placeholder {
+      color: $secondary-gray;
+    }
+
+    background-color: $secondary-black;
+    color: $primary-light-gray;
+    outline: 1px solid $secondary-black;
+
+    &:hover {
+      outline: 1px solid $dark-gray;
+    }
+
+    &:focus {
+      outline: 1px solid $primary-light-gray;
+    }
+  }
+
+  &::placeholder {
+    color: $secondary-gray;
+  }
+
+  &:hover {
+    outline: 1px solid $secondary-gray;
+  }
+
+  &:focus {
+    outline: 1px solid $dark-gray;
+  }
+
+  &--error {
+    outline: 1px solid $accent-error;
+
+    &:hover,
+    &:focus {
+      outline: 1px solid $accent-error;
+    }
+  }
+
+  &__label {
+    margin-bottom: 8px;
+    display: block;
+    @include font('Inter-Bold', 12px);
+    line-height: 15px;
+    color: $dark-gray;
+    transition: 0.5s all;
+
+    &--dark {
+      color: $primary-white;
+    }
+  }
+
+  &__visible {
+    position: absolute;
+    top: 30px;
+    transform: translateY(50%);
+    right: 20px;
+    cursor: pointer;
+    color: $dark-gray;
+    transition: 0.5s all;
+    background: transparent;
+    border: none;
+
+    &:hover {
+      color: $primary-black;
+    }
+
+    &--dark {
+      &:hover {
+        color: $primary-white;
+      }
+    }
+  }
+
+  &__password {
+    padding-right: 45px;
+  }
+
+  &__error {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &-text {
+      @include font('Inter-Light', 12px);
+      color: $accent-error;
+    }
+
+    &-icon {
+      color: $accent-error;
+    }
+  }
+}

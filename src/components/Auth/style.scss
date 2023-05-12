@@ -1,0 +1,55 @@
+.signup,
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 268px;
+
+  @include sm {
+    align-items: center;
+    width: 387px;
+  }
+
+  &--dark & {
+    &__title {
+      color: $primary-white;
+    }
+
+    &__description {
+      color: $primary-light-gray;
+    }
+  }
+
+  &__title {
+    @include font('Cormorant-Medium', 32px);
+    color: $dark-gray;
+    text-align: center;
+
+    @include sm {
+      font-size: 60px;
+    }
+  }
+
+  &__description {
+    @include font('Inter-Light', 12px);
+    color: $dark-gray;
+    order: 3;
+    margin-top: 40px;
+
+    @include sm {
+      font-size: 16px;
+      order: 0;
+    }
+  }
+
+  &__btn {
+    @include font('Inter-Light', 12px);
+    margin-left: 5px;
+    color: inherit;
+    border: none;
+    font-weight: 700;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    @include beforeLine;
+  }
+}

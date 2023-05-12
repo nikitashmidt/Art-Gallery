@@ -1,0 +1,161 @@
+.header {
+  @include xl {
+    @include flex-all-center;
+  }
+
+  &--dark & {
+    &__menu {
+      background-color: $primary-black;
+    }
+
+    &__container {
+      color: $primary-light-gray;
+    }
+
+    &__theme-icon {
+      border-radius: 100%;
+      background-color: $secondary-black;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $dark-gray;
+
+    @include xl {
+      width: 1440px;
+    }
+  }
+
+  &__logo {
+    color: inherit;
+  }
+
+  &__right {
+    position: relative;
+  }
+
+  &__hamburger {
+    position: relative;
+    z-index: $inHeaderHamburger;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: inherit;
+
+    @include md {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: $inHeaderMenu;
+    width: 80%;
+    height: 100vh;
+    gap: 52px;
+    background-color: $secondary-white;
+    transform: translateX(100%);
+    transition: 0.4s all;
+    @include flex-all-center;
+
+    flex-direction: column;
+
+    @include hiddenElem;
+
+    &--active {
+      transform: translateX(0%);
+
+      @include visibleElem;
+
+      @include lg {
+        height: 0;
+      }
+    }
+
+    @include md {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding: 0;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 70px;
+      background: transparent;
+      transform: translateX(0%);
+
+      @include visibleElem;
+    }
+  }
+
+  &__theme {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    @include lg {
+      cursor: pointer;
+    }
+  }
+
+  &__theme-mode {
+    color: inherit;
+    @include font('Inter-Bold', 12px);
+    text-transform: uppercase;
+    position: relative;
+    @include beforeLine;
+
+    @include md {
+      display: none;
+    }
+  }
+
+  &__theme-icon {
+    padding: 10px;
+    display: flex;
+  }
+
+  &__authorization {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+
+    @include sm {
+      gap: 40px;
+    }
+
+    @include md {
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+  &__login,
+  &__signup, &__logout {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s all;
+
+    @include font('Cormorant-Bold', 32px);
+
+    @include sm {
+      font-size: 60px;
+    }
+
+    @include md {
+      font-size: 16px;
+    }
+  }
+}

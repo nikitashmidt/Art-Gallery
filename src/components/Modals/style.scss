@@ -1,0 +1,239 @@
+.modal {
+  position: absolute;
+  animation: animationModal 0.4s linear;
+  transition: 0.5s all;
+  z-index: 28;
+
+  &--menu {
+    z-index: 20;
+  }
+
+  &__window {
+    position: fixed;
+    z-index: 15;
+    padding: 25px;
+    width: 100%;
+    height: 100%;
+    @include flex-all-center;
+    background-color: $primary-white;
+
+    @include md {
+      padding: 0;
+    }
+
+    @include lg {
+      width: 1028px;
+      height: 700px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &--dark {
+      background-color: $primary-black;
+    }
+
+    &--dark & {
+      &-close {
+        color: $primary-light-gray;
+      }
+    }
+
+    &-left {
+      display: none;
+      background-color: #fff;
+
+      @include md {
+        display: block;
+        width: 50%;
+        height: 100%;
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+
+      @include md {
+        width: 50%;
+        align-items: center;
+      }
+    }
+
+    &-close {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      color: $dark-gray;
+      border: none;
+      background: transparent;
+
+      @include lg {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    z-index: 14;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(3, 3, 3, 0.3);
+
+    @include lg {
+      cursor: pointer;
+    }
+  }
+
+  &-add {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    background-color: $primary-white;
+    padding: 80px 20px;
+
+    &--dark {
+      background-color: $primary-black;
+    }
+
+    &--dark & {
+      &__close {
+        color: white;
+      }
+
+      &__label {
+        color: white;
+      }
+    }
+
+    @include sm {
+      width: 693px;
+      height: 723px;
+      padding: 80px 100px;
+    }
+
+    &__close {
+      border: none;
+      background: transparent;
+      position: absolute;
+      right: 25px;
+      top: 25px;
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 40px;
+
+      @include sm {
+        flex-direction: row;
+        gap: 48px;
+      }
+    }
+
+    &__input {
+      color: $primary-black;
+    }
+
+    &__label {
+      color: $primary-black;
+    }
+
+    &__year {
+      @include sm {
+        width: 105px;
+      }
+    }
+
+    &__name {
+      @include sm {
+        width: 340px;
+      }
+    }
+
+    &__block {
+      border: 2px dashed $dark-gray;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      padding: 20px;
+      border-radius: 5px;
+
+      @include sm {
+        margin: 60px 0 60px 0;
+        padding: 45px;
+      }
+    }
+
+    &__file {
+      @include hiddenElem;
+      position: absolute;
+    }
+
+    &__label {
+      color: $dark-gray;
+      @include font('Inter-Medium', 16px);
+      position: relative;
+      @include beforeLine;
+      text-align: center;
+    }
+
+    &__drop {
+      display: none;
+
+      @include sm {
+        display: block;
+      }
+    }
+
+    &__descr {
+      @include font('Inter-Light', 12px);
+      color: $secondary-gray;
+      text-align: center;
+    }
+
+    &__icon {
+      display: block;
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+
+      @include sm {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    &__button {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+@keyframes animationModal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

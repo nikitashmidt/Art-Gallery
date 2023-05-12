@@ -1,0 +1,81 @@
+.footer {
+  border-top: 1px solid $primary-black;
+  color: $dark-gray;
+
+  @include xl {
+    display: flex;
+    justify-content: center;
+  }
+
+  &--dark {
+    border-color: $primary-light-gray;
+    color: $primary-light-gray;
+  }
+
+  &__container {
+    box-sizing: border-box;
+    padding: 32px;
+
+    @include sm {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 45px 20px;
+    }
+
+    @include xl {
+      width: 1440px;
+    }
+
+    @include lg {
+      padding: 40px 100px;
+    }
+  }
+
+  &__info {
+    @include font('Inter-Light');
+    margin-bottom: 20px;
+  }
+
+  &__info-description {
+    margin: 0 0 9px;
+    color: inherit;
+    font-size: 16px;
+    line-height: 140%;
+
+    @include sm {
+      width: 430px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__info-author {
+    color: $secondary-gray;
+  }
+
+  &__info-company {
+    @include font('Inter-Medium');
+    margin-left: 10px;
+    color: inherit;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: start;
+    color: inherit;
+  }
+
+  &__socials-link {
+    text-decoration: none;
+    transition: 0.4s all;
+    color: inherit;
+
+    @include lg {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

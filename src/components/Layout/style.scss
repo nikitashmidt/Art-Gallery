@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  transition: 0.5s all;
+
+  &--dark {
+    background-color: $primary-black;
+  }
+
+  &__main {
+    flex: 1 0 auto;
+    min-height: 100vh;
+  }
+}

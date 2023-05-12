@@ -1,0 +1,129 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  @include lg {
+    cursor: pointer;
+
+    &:hover & {
+      &__images {
+        transform: scale(1.2);
+      }
+
+      &__arrow {
+        right: -24px;
+        opacity: 1;
+        z-index: $inCardArrow;
+      }
+    }
+  }
+
+  &--dark & {
+    &__block {
+      background-color: $primary-black;
+    }
+
+    &__info,
+    &__date {
+      color: $accent-gold;
+
+      &::after {
+        background-color: $accent-gold;
+      }
+    }
+
+    &__name {
+      color: $primary-white;
+    }
+
+    &__arrow {
+      background-color: $accent-gold;
+    }
+  }
+
+  &__images {
+    object-fit: cover;
+    transition: 1s all;
+  }
+
+  &__block {
+    position: absolute;
+    bottom: 0;
+    z-index: $inCardBlock;
+    width: 70%;
+    padding: 8px 12px;
+    background-color: $primary-white;
+    transition: 0.5s all;
+
+    @include sm {
+      padding: 12px;
+    }
+
+    @include lg {
+      width: 80%;
+      padding: 22px;
+    }
+  }
+
+  &__info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -20px;
+      width: 2px;
+      height: 100%;
+      background-color: $accent-red;
+    }
+  }
+
+  &__name {
+    @include font('Cormorant-Medium', 12px);
+
+    color: $primary-black;
+    line-height: 15px;
+    text-transform: uppercase;
+
+    @include sm {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__date {
+    @include font('Inter-Bold', 8px);
+
+    color: $accent-red;
+    line-height: 10px;
+    text-transform: uppercase;
+
+    @include sm {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 0;
+    right: -24px;
+    width: 24px;
+    height: 100%;
+    color: $primary-light-gray;
+    background-color: $accent-red;
+    transition: 0.5s all;
+
+    @include flex-all-center;
+
+    @include lg {
+      opacity: 0;
+      right: 0;
+    }
+  }
+}

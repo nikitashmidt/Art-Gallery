@@ -1,0 +1,191 @@
+.info {
+  position: relative;
+  background-color: $primary-white;
+  margin-bottom: 60px;
+  padding: 20px 20px 0 20px;
+  transition: 0.5s all;
+  z-index: $inInfo;
+
+  &--dark {
+    background-color: $primary-black;
+  }
+
+  &--dark & {
+    &__header {
+      color: $secondary-gray;
+      background-color: inherit;
+    }
+
+    &__title {
+      color: $accent-gold;
+    }
+
+    &__divider {
+      background-color: $secondary-gray;
+    }
+
+    &__readmore-description {
+      color: $secondary-gray;
+    }
+  }
+
+  @include xs {
+    padding-top: 40px;
+    margin-bottom: 100px;
+  }
+
+  @include md {
+    position: absolute;
+    width: 450px;
+    top: 280px;
+    left: 40px;
+    padding: 20px;
+    margin-bottom: 0;
+  }
+
+  @include lg {
+    padding: 140px;
+    padding: 40px;
+    left: 140px;
+    width: 550px;
+  }
+
+  @include xl {
+    padding: 60px 80px;
+    width: 604px;
+    left: 100px;
+    top: 120px;
+  }
+
+  &__header {
+    position: absolute;
+    top: -120px;
+    left: 0;
+    @include font('Cormorant-Medium', 12px);
+    color: $dark-gray;
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background-color: inherit;
+
+    @include xs {
+      width: 560px;
+      flex-wrap: wrap;
+      flex-direction: row;
+      top: -122px;
+      gap: 0px;
+      row-gap: 15px;
+      font-size: 16px;
+    }
+
+    @include md {
+      position: relative;
+      padding: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    @include xl {
+      row-gap: 30px;
+    }
+  }
+
+  &__date {
+    @include xs {
+      width: 55%;
+      order: 2;
+    }
+  }
+
+  &__country {
+    order: 2;
+
+    @include xs {
+      width: 45%;
+      text-align: right;
+    }
+  }
+
+  &__title {
+    @include font('Cormorant-Bold', 32px);
+    color: $accent-red;
+    line-height: 100%;
+
+    @include xs {
+      order: 3;
+      font-size: 48px;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        background-color: currentColor;
+        left: -20px;
+      }
+    }
+
+    @include md {
+      margin-bottom: 20px;
+
+      &::before {
+        left: -30px;
+      }
+    }
+
+    @include lg {
+      font-size: 60px;
+
+      &::before {
+        left: -80px;
+      }
+    }
+
+    @include xl {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__divider {
+    display: none;
+
+    @include md {
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: $dark-gray;
+    }
+  }
+
+  &__readmore {
+    margin-bottom: 32px;
+  }
+
+  &__readmore-description {
+    @include font('Inter-Light', 16px);
+    color: $dark-gray;
+    transition: 0.5s all;
+    overflow: hidden;
+    margin-bottom: 21px;
+
+    @include md {
+      margin-top: 20px;
+    }
+  }
+
+  &__readmore-text {
+    position: relative;
+    @include beforeLine;
+  }
+
+  &__readmore-svg {
+    display: flex;
+
+    &--active {
+      transform: rotate(-180deg);
+    }
+  }
+}
