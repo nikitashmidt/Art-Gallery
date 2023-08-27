@@ -26,8 +26,6 @@ interface IModalChange {
 const ModalChange = ({ onClose }: IModalChange) => {
   const { isDark } = useTheme();
 
-  console.log(isDark);
-
   const schema = yup.object({
     namePicture: yup.string().required('Enter your name of picture'),
     yearCreation: yup

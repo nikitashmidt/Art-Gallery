@@ -17,8 +17,7 @@ const Footer = memo(() => {
       <div className={cn('footer__container')}>
         <div className={cn('footer__info')}>
           <p className={cn('footer__info-description')}>
-            Проект реализован в рамках стажировки для Frontend разработчиков от
-            компании
+            Проект реализован в рамках компании <br />
             <LinkSocial
               href='https://framework.team'
               title='Framework Team'
